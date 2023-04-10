@@ -9,6 +9,18 @@ spring:
       authentication-database: admin
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  application:
+    name: order-microservice
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 server:
   error:
     include-message: always
+  port: 8080
+debug: true
+logging:
+  level:
+    org.springframework: DEBUG

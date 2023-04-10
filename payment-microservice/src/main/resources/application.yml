@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: payment-microservice
   datasource:
     url: 'jdbc:postgresql://localhost:5432/mydb_postgre'
     username: root
@@ -15,3 +17,6 @@ server:
   port: 8081
   error:
     include-message: always
+logging:
+  level:
+    org.springframework: DEBUG
