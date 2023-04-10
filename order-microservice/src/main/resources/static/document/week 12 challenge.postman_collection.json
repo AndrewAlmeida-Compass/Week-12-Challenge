@@ -114,7 +114,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"cpf\": \"22245678912\",\n        \"items\": [\n            {\n                \"name\": \"item name\",\n                \"description\": \"item description\",\n                \"creationDate\": \"2000-08-03\",\n                \"amount\": 9.99\n            },\n            {\n                \"id\": 190,\n                \"name\": \"item name2\",\n                \"description\": \"item description2\",\n                \"creationDate\": \"2000-08-03\",\n                \"amount\": 99.55\n            }\n        ]\n    }",
+					"raw": "{\n        \"cpf\": \"22245678912\",\n        \"items\": [\n            {\n                \"id\": 190,\n                \"name\": \"item name\",\n                \"description\": \"item description\",\n                \"creationDate\": \"2000-08-03\",\n                \"amount\": 9.99\n            },\n            {\n                \"id\": 190,\n                \"name\": \"item name2\",\n                \"description\": \"item description2\",\n                \"creationDate\": \"2000-08-03\",\n                \"amount\": 99.55\n            }\n        ]\n    }",
 					"options": {
 						"raw": {
 							"language": "json"

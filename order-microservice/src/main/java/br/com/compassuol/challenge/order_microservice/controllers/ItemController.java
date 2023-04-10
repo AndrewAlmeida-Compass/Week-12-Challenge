@@ -12,7 +12,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("api/item")
-public class ItemControler {
+public class ItemController {
     @Autowired
     ModelMapper modelMapper;
 

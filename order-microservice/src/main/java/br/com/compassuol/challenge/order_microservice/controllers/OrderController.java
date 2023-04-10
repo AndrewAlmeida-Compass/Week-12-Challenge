@@ -24,7 +24,7 @@ import static java.lang.Long.parseLong;
 
 @RestController
 @RequestMapping("api/order")
-public class OrderControler {
+public class OrderController {
     @Autowired
     ModelMapper modelMapper;
 
