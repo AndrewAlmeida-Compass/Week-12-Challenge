@@ -1,0 +1,271 @@
+openapi: 3.0.3
+info:
+  title: Order microservice
+  description: |-
+    Swagger - Week 12 challenge
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: andrew.almeida.pb@compasso.com.br
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: '1.0'
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: http://localhost:8080
+tags:
+  - name: order
+    description: Methods for manipulating order objects
+  - name: item
+    description: Methods for manipulating order items objects
+paths:
+  /api/order:
+    post:
+      tags:
+        - order
+      summary: Add a new order
+      operationId: registerOrder
+      requestBody:
+        description: Add a new order
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+    get:
+      tags:
+        - order
+      summary: Get all orders
+      operationId: getAll
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllOrders'
+        '404':
+          description: No order found
+      parameters:
+        - in: query
+          name: sort
+          schema:
+            type: string
+          description: Sort orders by amount value [ASC, DESC]
+        - in: query
+          name: cpf
+          schema:
+            type: string
+          description: Filter orders by cpf value
+  /api/order/{id}:
+    get:
+      tags:
+        - order
+      summary: Get one order by id
+      operationId: getById
+      parameters:
+        - name: id
+          in: path
+          description: Order id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+        '404':
+          description: No order found
+    put:
+      tags:
+        - order
+      summary: Update an order
+      operationId: updateOrder
+      parameters:
+        - name: id
+          in: path
+          description: Order id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Update an order
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+        '404':
+          description: No order found
+    delete:
+      tags:
+        - order
+      summary: Delete an order
+      operationId: deleteOrder
+      parameters:
+        - name: id
+          in: path
+          description: Order id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              example : Order {id} was deleted.
+        '404':
+          description: No order found
+  /api/item:
+    post:
+      tags:
+        - item
+      summary: Add a new item
+      operationId: registerItem
+      requestBody:
+        description: Add a new item
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemResponse'
+  /apit/item/{id}:
+    put:
+      tags:
+        - item
+      summary: Update a associate
+      parameters:
+        - name: id
+          in: path
+          description: Item id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Update an item
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemResponse'
+        '404':
+          description: No item found
+components:
+  schemas:
+    Order:
+      type: object
+      properties:
+        cpf:
+          type: string
+          example: '12345678911'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Item'
+    OrderResponse:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1
+        cpf:
+          type: string
+          example: '12345678911'
+        amount:
+          type: number
+          example: 99.99
+        orderStatus:
+          type: string
+          example: 'IN_PROGRESS'
+        paymentStatus:
+          type: string
+          example: 'PROCESSING'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemResponse'
+    OrderUpdate:
+      type: object
+      properties:
+        cpf:
+          type: string
+          example: '12345678911'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemResponse'
+    Item:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "item name"
+        description:
+          type: string
+          example: "item description"
+        creationDate:
+          type: string
+          example: "2023-03-10"
+        amount:
+          type: number
+          example: 99.99
+    ItemResponse:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1
+        name:
+          type: string
+          example: "item name"
+        description:
+          type: string
+          example: "item description"
+        creationDate:
+          type: string
+          example: "2023-03-10"
+        amount:
+          type: number
+          example: 99.99
+    AllOrders:
+      type: array
+      items:
+        $ref: '#/components/schemas/OrderResponse'
+    
+    
+  
+  

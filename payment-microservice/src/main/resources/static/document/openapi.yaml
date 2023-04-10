@@ -1,0 +1,64 @@
+openapi: 3.0.3
+info:
+  title: Payment microservice
+  description: |-
+    Swagger - Week 12 challenge
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: andrew.almeida.pb@compasso.com.br
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: '1.0'
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: http://localhost:8081
+tags:
+  - name: payment
+    description: Methods for manipulating payment objects
+paths:
+  /api/payment:
+    get:
+      tags:
+        - payment
+      summary: Get all payments
+      operationId: getAll
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllPayments'
+        '404':
+          description: No payment found
+  
+components:
+  schemas:
+    PaymentResponse:
+      type: object
+      properties:
+        orderId:
+          type: number
+          example: 1
+        totalOrder:
+          type: number
+          example: 99.99
+        paymentStatus:
+          type: string
+          example: 'APPROVED'
+          enum:
+           - PROCESSSING
+           - REJECTED
+           - APPROVED
+    
+    AllPayments:
+      type: array
+      items:
+        $ref: '#/components/schemas/PaymentResponse'
+    
+    
+  
+  
