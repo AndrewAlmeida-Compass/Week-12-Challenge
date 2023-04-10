@@ -8,7 +8,6 @@ import br.com.compassuol.challenge.order_microservice.repositories.OrderReposito
 import br.com.compassuol.challenge.order_microservice.services.implementations.OrderServiceImp;
 import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

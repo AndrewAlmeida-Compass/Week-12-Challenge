@@ -1,9 +1,8 @@
 package br.com.compassuol.challenge.order_microservice.services.implementations;
 
-import br.com.compassuol.challenge.order_microservice.DatabaseSequence;
+import br.com.compassuol.challenge.order_microservice.config.DatabaseSequence;
 import br.com.compassuol.challenge.order_microservice.dtos.ItemRequest;
 import br.com.compassuol.challenge.order_microservice.dtos.ItemResponse;
-import br.com.compassuol.challenge.order_microservice.dtos.OrderResponse;
 import br.com.compassuol.challenge.order_microservice.entities.ItemEntity;
 import br.com.compassuol.challenge.order_microservice.entities.OrderEntity;
 import br.com.compassuol.challenge.order_microservice.repositories.ItemRepository;
@@ -15,10 +14,8 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.List;
 import java.util.Objects;
 import static org.springframework.data.mongodb.core.FindAndModifyOptions.options;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
@@ -52,7 +49,7 @@ public class ItemServiceImp implements ItemService {
 
     @Override
     public ItemResponse updateItem(Long id, ItemRequest request) {
-        ItemEntity itemEntity = itemRepository.findById(id).orElseThrow(
+        itemRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "No item was found"));
 
         ItemEntity item = modelMapper.map(request, ItemEntity.class);

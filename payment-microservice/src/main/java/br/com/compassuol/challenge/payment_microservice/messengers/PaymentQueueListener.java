@@ -4,18 +4,15 @@ import br.com.compassuol.challenge.payment_microservice.entities.PaymentEntity;
 import br.com.compassuol.challenge.payment_microservice.feign.UpdateOrderPayment;
 import br.com.compassuol.challenge.payment_microservice.repositories.PaymentRepository;
 import org.modelmapper.ModelMapper;
-import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.json.*;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
-
 import static java.lang.Long.parseLong;
 
 @Service
@@ -38,11 +35,8 @@ public class PaymentQueueListener {
     @RabbitListener(queues = "#{@Payment}")
     public void getMessage(byte[] message){
         JSONObject obj = new JSONObject(new String(message));
-
         Long id = parseLong(obj.get("orderId").toString());
-
         String paymentStatus = obj.getString("paymentStatus");
-
         BigDecimal amount = new BigDecimal(obj.get("totalOrder").toString());
 
         PaymentEntity entity = new PaymentEntity(id, amount, paymentStatus);

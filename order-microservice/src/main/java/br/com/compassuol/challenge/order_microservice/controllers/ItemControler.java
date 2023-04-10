@@ -2,7 +2,6 @@ package br.com.compassuol.challenge.order_microservice.controllers;
 
 import br.com.compassuol.challenge.order_microservice.dtos.ItemRequest;
 import br.com.compassuol.challenge.order_microservice.dtos.ItemResponse;
-import br.com.compassuol.challenge.order_microservice.dtos.OrderResponse;
 import br.com.compassuol.challenge.order_microservice.services.implementations.ItemServiceImp;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

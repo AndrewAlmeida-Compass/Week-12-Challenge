@@ -1,6 +1,6 @@
 package br.com.compassuol.challenge.order_microservice.services.implementations;
 
-import br.com.compassuol.challenge.order_microservice.DatabaseSequence;
+import br.com.compassuol.challenge.order_microservice.config.DatabaseSequence;
 import br.com.compassuol.challenge.order_microservice.dtos.OrderRequest;
 import br.com.compassuol.challenge.order_microservice.dtos.OrderResponse;
 import br.com.compassuol.challenge.order_microservice.entities.ItemEntity;
@@ -19,14 +19,12 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-
 import static org.springframework.data.mongodb.core.FindAndModifyOptions.options;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
