@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "0e8447be-bd5b-4578-be5a-6e8a5b24052e",
+		"name": "week 12 challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23912668"
+	},
+	"item": [
+		{
+			"name": "get all payments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n    \"name\": \"item name\",\n    \"description\": \"item description\",\n    \"creationDate\": \"2000-08-03\",\n    \"amount\": 29\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/payment",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"payment"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

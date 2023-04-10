@@ -1,4 +1,4 @@
-package br.com.compassuol.challenge.order_microservice;
+package br.com.compassuol.challenge.order_microservice.config;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

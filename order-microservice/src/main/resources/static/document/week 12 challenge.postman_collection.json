@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "0e8447be-bd5b-4578-be5a-6e8a5b24052e",
+		"name": "week 12 challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23912668"
+	},
+	"item": [
+		{
+			"name": "create an order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cpf\": \"22245678911\",\n    \"items\": [\n        {\n            \"name\": \"item name\",\n            \"description\": \"item description\",\n            \"creationDate\": \"2000-08-03\",\n            \"amount\": \"19.9\"\n        },\n        {\n            \"name\": \"item name2\",\n            \"description\": \"item description\",\n            \"creationDate\": \"2000-08-03\",\n            \"amount\": 99.5\n        }\n        ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/order",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/order",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all orders with parameters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/order?sort=DESC&cpf=22245678911",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"order"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "DESC"
+						},
+						{
+							"key": "sort",
+							"value": "ASC",
+							"disabled": true
+						},
+						{
+							"key": "cpf",
+							"value": "22245678911"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get order by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/order/216",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"order",
+						"216"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update an order",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"cpf\": \"22245678912\",\n        \"items\": [\n            {\n                \"id\": 190,\n                \"name\": \"item name\",\n                \"description\": \"item description\",\n                \"creationDate\": \"2000-08-03\",\n                \"amount\": 9.99\n            },\n            {\n                \"id\": 190,\n                \"name\": \"item name2\",\n                \"description\": \"item description2\",\n                \"creationDate\": \"2000-08-03\",\n                \"amount\": 99.55\n            }\n        ]\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/order/191",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"order",
+						"191"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete an order",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"cpf\": \"22245678912\",\n        \"orderStatus\": \"IN_PROGRESS\",\n        \"paymentStatus\": \"REJECTED\",\n        \"items\": [\n            {\n                \"id\": 18,\n                \"name\": \"item name\",\n                \"description\": \"item description\",\n                \"creationDate\": \"2000-08-03\",\n                \"amount\": 29.99\n            },\n            {\n                \"id\": 190,\n                \"name\": \"item name2\",\n                \"description\": \"item description\",\n                \"creationDate\": \"2000-08-03\",\n                \"amount\": 99.55\n            }\n        ]\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/order/224",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"order",
+						"224"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create an item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n    \"name\": \"item name\",\n    \"description\": \"item description\",\n    \"creationDate\": \"2000-08-03\",\n    \"amount\": \"29.9\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/item",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update an item",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n    \"name\": \"item name\",\n    \"description\": \"item description\",\n    \"creationDate\": \"2000-08-03\",\n    \"amount\": 29\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/item/165",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"item",
+						"165"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
