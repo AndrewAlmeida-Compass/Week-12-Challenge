@@ -56,7 +56,12 @@ After updating a payment to "PROCESSING" the order is updated to "IN_PROGRESS",
 changing payment status "APPROVED" updates order to "FINISHED" and 
 finally changing the payment status to "REJECTED" puts the order on "CANCELED" status.
 
+## Instruções para Download/Run
 
+Clone/baixe o repositório e abra as duas pastas (order-microservice/ e payment-microservice/) em seu editor (utilizei o IntelliJ),
+clique em Run nas duas classes principais de cada microsserviço (OrderMicroserviceApplication e PaymentMicroserviceApplication).
+
+É necessário os serviços externos já estarem em execução (mongoDB, postgre e rabbitMQ) e o java versão 17 instalado.
 
 ## Instructors
 
